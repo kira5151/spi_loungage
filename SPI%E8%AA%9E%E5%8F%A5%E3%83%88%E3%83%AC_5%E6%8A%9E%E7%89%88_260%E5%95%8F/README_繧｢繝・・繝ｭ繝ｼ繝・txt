@@ -1,0 +1,17 @@
+SPI 語句トレ 5択版（260問）
+====================================
+頻出語句210問と複数の意味50問を5つの選択肢から解くスマホ用Webアプリです。
+
+GitHub Pagesの既存アプリを更新する方法
+1. https://github.com/kira5151/spi_loungage を開く
+2. README.mdと同じ階層にある既存のindex.htmlを開く
+3. 鉛筆マーク（Edit this file）を押すか、Add file → Upload files で差し替える
+4. このZIP内の index.html を上書きして Commit changes
+5. Actions で pages build and deployment が緑色になったらアクセス
+   https://kira5151.github.io/spi_loungage/?v=5
+
+※ ZIPファイルそのものをGitHubにアップロードしても、ページは更新されません。
+※ index.htmlのファイル名を変えないでください。
+※ 出題結果は同じブラウザ・公開URLで以前の記録が残ります。
+※ 選択肢の誤答候補は他の収録問題から自動で選んでいます。
+※ 書籍教材を公開リポジトリで配信する場合は、権利や利用条件をご確認ください。
