@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102742">
+  <meta name="description" content="SPI言語対策の頻出語句210問と複数の意味50問を、1問1答で学べる無料の学習アプリ。">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SPI語句トレ">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icon-180.png">
+  <link rel="icon" type="image/png" href="./icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>SPI 語句トレ | 1問1答 260問</title>
+</head>
+<body>
+  <div class="app">
+    <header class="site-head">
+      <div class="brand-logo" aria-hidden="true">語</div>
+      <div class="brand-body"><span class="eyebrow">SPI 言語対策</span><h1>語句トレ <span class="title-dot">.</span></h1></div>
+      <span class="head-count">260 <small>問収録</small></span>
+    </header>
+
+    <nav class="top-nav" aria-label="画面切り替え">
+      <button class="nav-button selected" data-view="study" type="button" aria-current="page">学習</button>
+      <button class="nav-button" data-view="list" type="button">問題一覧</button>
+      <button class="nav-button" data-view="settings" type="button">設定</button>
+    </nav>
+
+    <main>
+      <section class="panel-view" id="studyView">
+        <div class="stats-grid" aria-label="学習状況">
+          <div class="stat"><span>覚えた</span><strong id="goodCount">0</strong></div>
+          <div class="stat"><span>要復習</span><strong id="badCount">0</strong></div>
+          <div class="stat"><span>未学習</span><strong id="newCount">260</strong></div>
+        </div>
+        <div class="progress-box"><div class="progress-label"><span>総合学習進捗</span><b id="progressPercent">0%</b></div><div class="progress-track"><div id="progressFill" class="progress-fill"></div></div></div>
+
+        <section class="control-panel" aria-label="出題設定">
+          <div class="control-row"><label for="categorySelect">出題範囲</label><select id="categorySelect">
+            <option value="all">すべて（260問）</option><option value="vocab">頻出語句（210問）</option><option value="multiple">複数の意味（50問）</option>
+          </select></div>
+          <div class="control-row"><label for="scopeSelect">学習モード</label><select id="scopeSelect">
+            <option value="all">すべての問題</option><option value="new">未学習だけ</option><option value="wrong">要復習だけ</option>
+          </select></div>
+          <label class="switch-row"><span>ランダム出題</span><input id="shuffleToggle" type="checkbox" checked role="switch"><span class="switch-ui" aria-hidden="true"></span></label>
+        </section>
+
+        <section class="study-area" aria-label="出題カード" id="studyArea">
+          <div class="card-topline"><span class="quiz-chip" id="quizKind">頻出語句</span><span class="quiz-progress" id="quizPosition">1 / 260</span></div>
+          <div class="question-card" id="questionCard">
+            <div class="card-inner" id="cardInner">
+              <div class="question-label" id="questionLabel">次の意味にあてはまる語句は？</div>
+              <div class="question-text" id="questionText"></div>
+              <div class="prompt-hint" id="hintText">頭の中で答えを考えてみよう</div>
+              <div id="answerSection" class="answer-section" hidden>
+                <div class="answer-divider"></div>
+                <span class="answer-eyebrow" id="answerEyebrow">正解</span>
+                <div class="answer-word" id="answerWord"></div>
+                <p class="answer-extra" id="answerExtra"></p>
+              </div>
+            </div>
+            <div class="page-note" id="pageNote"></div>
+          </div>
+          <div id="cardActions" class="card-actions">
+            <button class="primary-btn" id="revealBtn" type="button">答えを見る <span aria-hidden="true">→</span></button>
+            <div class="grade-actions" id="gradeActions" hidden>
+              <button class="secondary-btn" id="againBtn" type="button"><span aria-hidden="true">↺</span> もう一度</button>
+              <button class="success-btn" id="correctBtn" type="button"><span aria-hidden="true">✓</span> 覚えた！</button>
+            </div>
+          </div>
+          <div class="session-status" id="sessionStatus" aria-live="polite"></div>
+        </section>
+        <section class="empty-card" id="emptyCard" hidden>
+          <div class="empty-icon">✦</div><h2 id="emptyTitle">この範囲は終了！</h2><p id="emptyMessage">出題する問題がありません。</p>
+          <button class="primary-btn" id="restartBtn" type="button">最初からもう一周</button>
+        </section>
+        <p class="footer-note">※ 正誤は「答えを見る」後に自分で判定します。学習記録はこの端末のブラウザに保存されます。</p>
+      </section>
+
+      <section class="panel-view" id="listView" hidden>
+        <div class="section-heading"><h2>問題一覧</h2><p>単語・意味で検索。問題をタップすると、その問題から学習できます。</p></div>
+        <label class="search-wrap"><span aria-hidden="true">⌕</span><input type="search" id="searchInput" placeholder="例：蹂躙、間に合わせる、味" autocomplete="off"></label>
+        <div class="list-filter" role="group" aria-label="問題の種類">
+          <button data-listfilter="all" class="pill active" type="button">全部</button>
+          <button data-listfilter="vocab" class="pill" type="button">頻出語句</button>
+          <button data-listfilter="multiple" class="pill" type="button">複数の意味</button>
+          <button data-listfilter="wrong" class="pill" type="button">要復習</button>
+        </div>
+        <div class="list-count" id="listCount"></div>
+        <div class="question-list" id="questionList"></div>
+      </section>
+
+      <section class="panel-view" id="settingsView" hidden>
+        <div class="section-heading"><h2>設定・使い方</h2><p>1問1答でコツコツ覚えよう。</p></div>
+        <div class="guide-card"><h3>使い方</h3><ol><li>問題の意味や語句を見て、答えを考える</li><li>「答えを見る」で解答を確認</li><li>正しく答えられたら「覚えた！」、迷ったら「もう一度」</li><li>学習モードを「要復習だけ」にして繰り返す</li></ol></div>
+        <div class="guide-card"><h3>iPhoneのホーム画面に追加</h3><p>アプリをGitHub Pagesなどで公開し、SafariでそのURLを開きます。共有ボタン →「ホーム画面に追加」を選ぶと、アプリのように起動できます。</p><p class="subtle">公開せずHTMLファイルを開いて使うこともできますが、ホーム画面追加・オフライン保存は公開URLからの利用を推奨します。</p></div>
+        <div class="guide-card"><h3>収録データ</h3><p>写真の192〜197ページの頻出語句210問、206〜207ページの複数の意味50問を収録。設問文は学習用に一部整理しています。</p></div>
+        <div class="guide-card dangerous"><h3>学習記録のリセット</h3><p>「覚えた」「要復習」などの全記録を削除します。問題データは残ります。</p><button id="resetBtn" type="button" class="outline-danger">学習記録を削除</button></div>
+      </section>
+    </main>
+    <footer class="site-footer">SPI 語句トレ <span>·</span> 自分のペースで、一問ずつ。</footer>
+  </div>
+  <script src="./data.js"></script><script src="./app.js"></script>
+</body>
+</html>

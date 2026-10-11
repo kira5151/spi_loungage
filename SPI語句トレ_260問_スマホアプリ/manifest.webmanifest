@@ -1,0 +1,15 @@
+{
+  "name": "SPI 語句トレ | 1問1答 260問",
+  "short_name": "SPI語句トレ",
+  "description": "頻出語句210問と複数の意味50問を、1問1答で復習できるアプリ",
+  "lang": "ja",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#102742",
+  "icons": [
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
